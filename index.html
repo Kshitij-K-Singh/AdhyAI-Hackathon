@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8"/>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+    <title>Plant Doctor - AI Plant Disease Detection</title>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet"/>
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+    <link rel="stylesheet" href="style.css"/>
+</head>
+<body>
+    <nav class="navbar">
+        <div class="nav-content">
+            <div class="logo">Plant Doctor</div>
+        </div>
+    </nav>
+
+    <main>
+        <section class="hero">
+            <div class="hero-bg">
+                <img src="https://lh3.googleusercontent.com/aida-public/AB6AXuCOeVcDSwQoqqQft0c6YR3B1Rn4-FQ_Cb9purNCsVDGm8nygabW11x-p5TlIK98v_nKhxG9xvcd2Ckb9SWuYVPMhXzPL8iXR6mtqWE_I6FM79QgsvbKQGpJZnMlsx5mCyuN2FN07m2R0IGwg-UGhncIhCO7LvLVZYegA3DzffjYMnFnhhIO-cNPHPxuOi-Z1299tDlBRtux8r4SK1AaEXiAQ3kj1S0P_XHaULSCFIiPa5fp-0-OLk-I2oRrDlCHYBlIX6ZkeUa7elY" alt="Lush green plant leaves"/>
+                <div class="hero-overlay"></div>
+            </div>
+
+            <div class="upload-section">
+                <div class="hero-text">
+                    <h1>Heal Your Plants <br/><span class="hero-accent">Instantly.</span></h1>
+                    <p class="hero-subtitle">Precision AI diagnostics to identify botanical diseases and provide expert-curated recovery plans.</p>
+                </div>
+
+                <div class="upload-card">
+                    <div class="drop-zone" id="dropZone">
+                        <div class="drop-zone-content" id="dropZoneContent">
+                            <span class="material-symbols-outlined drop-icon">upload_file</span>
+                            <p class="drop-text">Drag & drop your leaf photo here</p>
+                            <p class="drop-hint">Supports JPG, PNG up to 10MB</p>
+                        </div>
+                        <img id="previewImage" class="preview-image hidden" alt="Preview"/>
+                        <div class="pulse-border"></div>
+                        <input type="file" id="fileInput" accept="image/*" hidden/>
+                    </div>
+
+                    <div class="button-group">
+                        <button class="btn-secondary" id="cameraBtn">
+                            <span class="material-symbols-outlined">photo_camera</span>
+                            Capture via Camera
+                        </button>
+                        <button class="btn-primary" id="analyzeBtn" disabled>
+                            Analyze
+                            <span class="material-symbols-outlined">shutter_speed</span>
+                        </button>
+                    </div>
+
+                    <div class="loading-state hidden" id="loadingState">
+                        <div class="diagnostic-lens">
+                            <div class="lens-pulse"></div>
+                            <span class="material-symbols-outlined lens-icon">psychology</span>
+                        </div>
+                        <p class="loading-text">Analyzing botanical patterns...</p>
+                    </div>
+
+                    <div class="health-badge hidden" id="healthBadge">
+                        <span class="material-symbols-outlined">check_circle</span>
+                        <span>Healthy Plant</span>
+                    </div>
+
+                    <div class="results-section hidden" id="resultsSection">
+                        <div class="results-header">
+                            <span class="material-symbols-outlined results-icon">ecg_heart</span>
+                            <h3>Diagnosis Complete</h3>
+                        </div>
+                        <div class="results-list" id="resultsList"></div>
+                    </div>
+
+                    <div class="prescription-card hidden" id="prescriptionCard">
+                        <div class="prescription-header">
+                            <div class="prescription-title" id="prescriptionTitle">
+                                <span class="material-symbols-outlined">clinical_notes</span>
+                                <span>Treatment Prescription</span>
+                            </div>
+                            <div class="prescription-badge">
+                                <svg viewBox="0 0 16 16" fill="currentColor"><path d="M8 0a1 1 0 0 1 .894.553L10.382 4h3.618a1 1 0 0 1 .707 1.707l-2.829 2.829 1.106 4.423a1 1 0 0 1-1.451 1.054L8 12.236l-3.533 1.777a1 1 0 0 1-1.451-1.054l1.106-4.423L1.293 5.707A1 1 0 0 1 2 4h3.618L7.106.553A1 1 0 0 1 8 0z"/></svg>
+                                <span>Gemini</span>
+                            </div>
+                        </div>
+                        <div class="prescription-content" id="prescriptionContent"></div>
+                    </div>
+
+                    <button class="btn-secondary btn-reset" id="resetBtn">
+                        <span class="material-symbols-outlined">refresh</span>
+                        Analyze Another
+                    </button>
+                </div>
+            </div>
+        </section>
+
+        <section class="process-section">
+            <div class="process-container">
+                <div class="process-header">
+                    <div class="process-title-group">
+                        <span class="process-label">Process</span>
+                        <h2 class="process-title">The Science of Recovery</h2>
+                    </div>
+                    <p class="process-description">From detection to treatment, our platform guides you through every stage of botanical care.</p>
+                </div>
+
+                <div class="process-steps">
+                    <div class="step">
+                        <div class="step-number">01</div>
+                        <div class="step-content">
+                            <div class="step-icon step-icon-primary">
+                                <span class="material-symbols-outlined">upload</span>
+                            </div>
+                            <h3>Upload Photo</h3>
+                            <div class="step-badge">
+                                <span class="material-symbols-outlined">upload</span>
+                                <span>Powered by PlantVillage</span>
+                            </div>
+                            <p>Take a clear, well-lit photo of the affected leaf area. Ensure the patterns of disease are visible.</p>
+                        </div>
+                    </div>
+
+                    <div class="step">
+                        <div class="step-number">02</div>
+                        <div class="step-content">
+                            <div class="step-icon step-icon-secondary">
+                                <span class="material-symbols-outlined">psychology</span>
+                            </div>
+                            <h3>AI Analysis</h3>
+                            <p>Our neural network scans for thousands of known pathogens, identifying issues with 99% botanical accuracy.</p>
+                        </div>
+                    </div>
+
+                    <div class="step">
+                        <div class="step-number">03</div>
+                        <div class="step-content">
+                            <div class="step-icon step-icon-tertiary">
+                                <span class="material-symbols-outlined">medical_services</span>
+                            </div>
+                            <h3>Get Treatment Plan</h3>
+                            <p>Receive a customized treatment guide including organic solutions, humidity adjustments, and care schedules.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="bento-section">
+            <div class="bento-grid">
+                <div class="bento-large">
+                    <img src="https://lh3.googleusercontent.com/aida-public/AB6AXuBu3Tkfw8zoZdi3sxE1tlCt5ck5mF3BroF5W0GMRuRv8xKTY1owwtBq7dh1UCqIfFVHLnDgxsZQHNAu11RthuM7bG0LZX9RYd9peYhg9H-RkvrsMbPTe5Ecjoe8AFIHkyaVYn7HhEh_PjVQLwHBW7FRd-OF6HR_r9uOfAqhhxAGKy-gG8G7SyNmYtYXbvi4PHBKljyPYnU-_7ZU2d6nimtDP_LiFGvO8ckFIre-4K1p0y9Wl_YcWXfBEwmW4pEv3lPEoyl1nj_B12w" alt="Scientific analysis"/>
+                    <div class="bento-overlay">
+                        <span class="bento-tag">Research</span>
+                        <h4>Scientific Accuracy in Every Pixel</h4>
+                    </div>
+                </div>
+
+                <div class="bento-info">
+                    <h4>Trained on 54k+ Images</h4>
+                    <p>Our AI model is rigorously trained on 54,000+ high-quality botanical images from the PlantVillage archive for maximum diagnostic precision.</p>
+                </div>
+
+                <div class="bento-accent">
+                    <span class="material-symbols-outlined">energy_savings_leaf</span>
+                    <p>Sustainable Organic Solutions</p>
+                </div>
+
+                <div class="bento-image">
+                    <img src="https://lh3.googleusercontent.com/aida-public/AB6AXuC8s-FYRaRrR3vGBV-9rbGUKWgzgv7GXEz3PqmIHenHmdRUIcmZWwTWiB-dbp2QXqkbW8IxuMsAZ5pK5s0t-AAZzkH3VuCtfhKA4AWxyUe7g2qhNbpjZCRBe2ldWSrVR5deNANI8PROsDnR97c01voHTBe3ZpNVF8tC30FRxJpDHf3CzbTYKHXpNNerPUBCWkF73yrd-jm9Dv0ay7VC22QpaVDaYoLds8O8j2WHjrSh9X9v_4mKYRwwQcmHIeO8a-Yi3hmb5xyneFY" alt="Water droplets on leaf"/>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-brand">
+                <div class="footer-logo">Plant Doctor</div>
+                <div class="footer-copy">2024 Plant Doctor. Cultivating healthy growth.</div>
+            </div>
+        </div>
+    </footer>
+
+    <div class="modal hidden" id="cameraModal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3>Capture Photo</h3>
+                <button class="modal-close" id="closeCameraModal">
+                    <span class="material-symbols-outlined">close</span>
+                </button>
+            </div>
+            <video id="cameraVideo" autoplay playsinline></video>
+            <div class="modal-actions">
+                <button class="btn-primary" id="captureBtn">
+                    <span class="material-symbols-outlined">photo_camera</span>
+                    Capture
+                </button>
+            </div>
+        </div>
+    </div>
+    <canvas id="cameraCanvas" hidden></canvas>
+
+    <script src="https://cdn.jsdelivr.net/npm/onnxruntime-web@1.14.0/dist/ort.min.js"></script>
+    <script src="class_names.js"></script>
+    <script src="app.js"></script>
+</body>
+</html>
