@@ -20,8 +20,6 @@ AI-powered plant disease detection in your browser with instant treatment prescr
 |:--------------:|:-----------------:|:----------------------:|
 | ![Main UI](screenshots/main-ui.png) | ![Detection](screenshots/detection.png) | ![Prescription](screenshots/prescription.png) |
 
-*Add your screenshots to the `screenshots/` folder*
-
 ---
 
 ## Features
