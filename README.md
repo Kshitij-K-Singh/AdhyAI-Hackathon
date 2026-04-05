@@ -254,7 +254,9 @@ Returns the Gemini API response directly:
 
 ## Authors
 
-- **Kshitij K Singh** - [GitHub](https://github.com/Kshitij-K-Singh)
+- **Kshitij Kumar Singh** - [GitHub](https://github.com/Kshitij-K-Singh)
+- **Karmendra Patel**
+- **Karan Raj**
 
 ---
 
